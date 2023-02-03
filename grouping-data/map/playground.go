@@ -32,4 +32,8 @@ func main() {
 	}
 
 	delete(m, "zahra")
+
+	myArray := [...]int{1, 2, 3}
+
+	fmt.Println(len(myArray))
 }
