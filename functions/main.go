@@ -9,6 +9,7 @@ func main() {
 	fmt.Println(s1)
 	fullName, ok := getFullName("Ian", "Fleming")
 	fmt.Println(fullName, ok)
+	printAllX(2, 3, 4, 5, 6, 7, 8, 9, 10)
 }
 
 func woo(s string) string {
@@ -34,4 +35,18 @@ func getFullName(fn, ln string) (string, bool) {
 	}
 
 	return fmt.Sprint(fn, " ", ln), true
+}
+
+func printAllX(x ...int) {
+	fmt.Println(x)
+	fmt.Printf("%T\n", x)
+
+	sum := 0
+	for i, v := range x {
+		fmt.Println("for item in index position", i, "we are now adding,", v, "to the total and current total is:", sum)
+		sum += v
+	}
+
+	fmt.Println("total:", sum)
+
 }
