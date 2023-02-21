@@ -12,9 +12,18 @@ type secretAgent struct {
 	ltk bool
 }
 
-func (s secretAgent) speak() {
-	fmt.Println("Hello, I am", s.first, s.last)
+type human interface {
+	speak()
 }
+
+func (s secretAgent) speak() {
+	fmt.Println("Hello, I am", s.first, s.last, " - the secret agent speak.")
+}
+
+func (s person) speak() {
+	fmt.Println("Hello, I am", s.first, s.last, " - the person speak.")
+}
+
 func main() {
 	sa1 := secretAgent{
 		person: person{
@@ -32,6 +41,16 @@ func main() {
 		ltk: true,
 	}
 
+	p1 := person{"amir", "kherad"}
+
 	sa1.speak()
 	sa2.speak()
+
+	fmt.Println(p1)
+
+	checkIsHuman(p1)
+}
+
+func checkIsHuman(h human) {
+	fmt.Println("I called human")
 }
